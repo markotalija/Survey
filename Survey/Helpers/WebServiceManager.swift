@@ -12,7 +12,7 @@ struct WebServiceManager {
     
     //MARK: - POST Methods
     
-    static func makePostRequest(withURL urlString: String, parameters: String) {
+    static func createUserFromHTTPRequest(withURL urlString: String, parameters: String, completionHandler: @escaping () -> ()) {
         
         guard let baseLoginURL = URL(string: urlString) else { return }
         
@@ -23,16 +23,33 @@ struct WebServiceManager {
         
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             guard let data = data, error == nil else {
-                print("Error: \(error?.localizedDescription ?? "Custom error")")
+                print("Error: \(error?.localizedDescription ?? "")")
                 return
             }
             
             if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
-                print("Status code is \(httpStatus.statusCode)")
+                print("Status code is: \(httpStatus.statusCode)")
             }
             
-            let string = String(data: data, encoding: .utf8)
-            print("Response: \(string ?? "No response")")
+            let responseString = String(data: data, encoding: .utf8)
+            if (responseString?.contains("message"))! {
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: WRONG_LOGIN_PARAMS), object: nil)
+                return
+            }
+            
+            do {
+                let record = try JSONDecoder().decode(Record.self, from: data)
+                let user = record.records.first!
+                DataManager.sharedInstance.currentUser = user
+                
+            } catch let error {
+                print("Error parsing JSON: \(error.localizedDescription)")
+            }
+            
+            DispatchQueue.main.async {
+                completionHandler()
+            }
+            
             }.resume()
     }
 }

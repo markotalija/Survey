@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C079EDF2016AAAD008B8F25 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C079EDE2016AAAD008B8F25 /* DataManager.swift */; };
 		5C90FEA42015F27E00DE6B6F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C90FEA32015F27E00DE6B6F /* AppDelegate.swift */; };
 		5C90FEA62015F27E00DE6B6F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C90FEA52015F27E00DE6B6F /* LoginViewController.swift */; };
 		5C90FEA92015F27E00DE6B6F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C90FEA72015F27E00DE6B6F /* Main.storyboard */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5C079EDE2016AAAD008B8F25 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		5C90FEA02015F27E00DE6B6F /* Survey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Survey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C90FEA32015F27E00DE6B6F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5C90FEA52015F27E00DE6B6F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 				5C9F685D20161A4B007A0711 /* Utilities.swift */,
 				5C9F685F20164460007A0711 /* Constants.swift */,
 				5C9F686120164897007A0711 /* WebServiceManager.swift */,
+				5C079EDE2016AAAD008B8F25 /* DataManager.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 				5C9F686420164999007A0711 /* User.swift in Sources */,
 				5C9F685E20161A4B007A0711 /* Utilities.swift in Sources */,
 				5C90FEA42015F27E00DE6B6F /* AppDelegate.swift in Sources */,
+				5C079EDF2016AAAD008B8F25 /* DataManager.swift in Sources */,
 				5C9F686020164460007A0711 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

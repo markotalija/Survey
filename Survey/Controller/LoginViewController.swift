@@ -15,12 +15,22 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var forgotPasswordButton: UIButton!
     @IBOutlet weak var checkboxButton: UIButton!
+    @IBOutlet weak var spinnerView: UIActivityIndicatorView!
+    var rememberMe = false
     
     //MARK: - View lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Ako je login uspesan, sacuvati korisnika u NSUD, i u AppDelegatu proveriti da li ga imam.
+        //Ako imam korisnika, uzeti njegove podatke i preci odmah na listu anketa
+        //Nastaviti dalje
+        
+        //Ispisati komentare
+        //Proveriti layout na svim uredjajima
+        
+        registerForNotifications()
         configureForgotPasswordButton()
     }
     
@@ -33,6 +43,17 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let attributedString = NSAttributedString(string: "Zaboravili ste šifru?", attributes: attributes)
         forgotPasswordButton.setAttributedTitle(attributedString, for: .normal)
         
+    }
+    
+    func registerForNotifications() {
+        
+        NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: WRONG_LOGIN_PARAMS), object: nil, queue: OperationQueue.main) { (note) in
+            DispatchQueue.main.async {
+                self.spinnerView.stopAnimating()
+            }
+            let alert = Utilities.presentLoginErrorAlert(withTitle: "Pogrešan E-mail ili lozinka.", message: "")
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     //MARK: - Actions
@@ -61,7 +82,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             return
         }
         
-        WebServiceManager.makePostRequest(withURL: BASE_LOGIN_URL, parameters: "email=\(nameTextField.text!)&lozinka=\(passwordTextField.text!)")
+        spinnerView.startAnimating()
+        
+        WebServiceManager.createUserFromHTTPRequest(withURL: BASE_LOGIN_URL, parameters: "email=\(nameTextField.text!)&lozinka=\(passwordTextField.text!)") {
+            self.spinnerView.stopAnimating()
+            self.performSegue(withIdentifier: LIST_SEGUE, sender: self)
+        }
     }
     
     //MARK: - UITextFieldDelegate

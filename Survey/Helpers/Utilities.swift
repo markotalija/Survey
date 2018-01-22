@@ -21,4 +21,11 @@ class Utilities {
         
         return alert
     }
+    
+    static func presentAlertMessage(withTitle title: String) -> UIAlertController {
+        
+        let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
+        
+        return alert
+    }
 }

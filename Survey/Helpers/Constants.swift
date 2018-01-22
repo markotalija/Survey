@@ -8,5 +8,11 @@
 
 import Foundation
 
-//Strings
+//URLs
 let BASE_LOGIN_URL = "http://admin.4like.rs/admin/api/login.php"
+
+//Notifications
+let WRONG_LOGIN_PARAMS = "WRONG_LOGIN_PARAMS"
+
+//Segues
+let LIST_SEGUE = "ListSegue"
