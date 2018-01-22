@@ -8,20 +8,34 @@
 
 /* Begin PBXBuildFile section */
 		5C90FEA42015F27E00DE6B6F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C90FEA32015F27E00DE6B6F /* AppDelegate.swift */; };
-		5C90FEA62015F27E00DE6B6F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C90FEA52015F27E00DE6B6F /* ViewController.swift */; };
+		5C90FEA62015F27E00DE6B6F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C90FEA52015F27E00DE6B6F /* LoginViewController.swift */; };
 		5C90FEA92015F27E00DE6B6F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C90FEA72015F27E00DE6B6F /* Main.storyboard */; };
 		5C90FEAB2015F27E00DE6B6F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C90FEAA2015F27E00DE6B6F /* Assets.xcassets */; };
 		5C90FEAE2015F27E00DE6B6F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C90FEAC2015F27E00DE6B6F /* LaunchScreen.storyboard */; };
+		5C90FEBB2015F72100DE6B6F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C90FEBA2015F72100DE6B6F /* Default-568h@2x.png */; };
+		5C90FEBF2016096700DE6B6F /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C90FEBE2016096700DE6B6F /* RoundedButton.swift */; };
+		5C90FEC12016141300DE6B6F /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C90FEC02016141300DE6B6F /* ForgotPasswordViewController.swift */; };
+		5C9F685E20161A4B007A0711 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9F685D20161A4B007A0711 /* Utilities.swift */; };
+		5C9F686020164460007A0711 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9F685F20164460007A0711 /* Constants.swift */; };
+		5C9F686220164897007A0711 /* WebServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9F686120164897007A0711 /* WebServiceManager.swift */; };
+		5C9F686420164999007A0711 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9F686320164999007A0711 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5C90FEA02015F27E00DE6B6F /* Survey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Survey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C90FEA32015F27E00DE6B6F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5C90FEA52015F27E00DE6B6F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5C90FEA52015F27E00DE6B6F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5C90FEA82015F27E00DE6B6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5C90FEAA2015F27E00DE6B6F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5C90FEAD2015F27E00DE6B6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5C90FEAF2015F27E00DE6B6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5C90FEBA2015F72100DE6B6F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		5C90FEBE2016096700DE6B6F /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		5C90FEC02016141300DE6B6F /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		5C9F685D20161A4B007A0711 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		5C9F685F20164460007A0711 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		5C9F686120164897007A0711 /* WebServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebServiceManager.swift; sourceTree = "<group>"; };
+		5C9F686320164999007A0711 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,13 +69,68 @@
 			isa = PBXGroup;
 			children = (
 				5C90FEA32015F27E00DE6B6F /* AppDelegate.swift */,
-				5C90FEA52015F27E00DE6B6F /* ViewController.swift */,
-				5C90FEA72015F27E00DE6B6F /* Main.storyboard */,
-				5C90FEAA2015F27E00DE6B6F /* Assets.xcassets */,
-				5C90FEAC2015F27E00DE6B6F /* LaunchScreen.storyboard */,
-				5C90FEAF2015F27E00DE6B6F /* Info.plist */,
+				5C90FEB52015F6AD00DE6B6F /* Model */,
+				5C90FEB62015F6B400DE6B6F /* View */,
+				5C90FEB72015F6BA00DE6B6F /* Controller */,
+				5C90FEB82015F6E000DE6B6F /* Storyboards */,
+				5C9F685C20161A3A007A0711 /* Helpers */,
+				5C90FEB92015F6F800DE6B6F /* Supporting files */,
 			);
 			path = Survey;
+			sourceTree = "<group>";
+		};
+		5C90FEB52015F6AD00DE6B6F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5C9F686320164999007A0711 /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5C90FEB62015F6B400DE6B6F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5C90FEBE2016096700DE6B6F /* RoundedButton.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5C90FEB72015F6BA00DE6B6F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5C90FEA52015F27E00DE6B6F /* LoginViewController.swift */,
+				5C90FEC02016141300DE6B6F /* ForgotPasswordViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		5C90FEB82015F6E000DE6B6F /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				5C90FEA72015F27E00DE6B6F /* Main.storyboard */,
+				5C90FEAC2015F27E00DE6B6F /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		5C90FEB92015F6F800DE6B6F /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				5C90FEAA2015F27E00DE6B6F /* Assets.xcassets */,
+				5C90FEAF2015F27E00DE6B6F /* Info.plist */,
+				5C90FEBA2015F72100DE6B6F /* Default-568h@2x.png */,
+			);
+			path = "Supporting files";
+			sourceTree = "<group>";
+		};
+		5C9F685C20161A3A007A0711 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				5C9F685D20161A4B007A0711 /* Utilities.swift */,
+				5C9F685F20164460007A0711 /* Constants.swift */,
+				5C9F686120164897007A0711 /* WebServiceManager.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -124,6 +193,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C90FEAE2015F27E00DE6B6F /* LaunchScreen.storyboard in Resources */,
+				5C90FEBB2015F72100DE6B6F /* Default-568h@2x.png in Resources */,
 				5C90FEAB2015F27E00DE6B6F /* Assets.xcassets in Resources */,
 				5C90FEA92015F27E00DE6B6F /* Main.storyboard in Resources */,
 			);
@@ -136,8 +206,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C90FEA62015F27E00DE6B6F /* ViewController.swift in Sources */,
+				5C90FEC12016141300DE6B6F /* ForgotPasswordViewController.swift in Sources */,
+				5C9F686220164897007A0711 /* WebServiceManager.swift in Sources */,
+				5C90FEA62015F27E00DE6B6F /* LoginViewController.swift in Sources */,
+				5C90FEBF2016096700DE6B6F /* RoundedButton.swift in Sources */,
+				5C9F686420164999007A0711 /* User.swift in Sources */,
+				5C9F685E20161A4B007A0711 /* Utilities.swift in Sources */,
 				5C90FEA42015F27E00DE6B6F /* AppDelegate.swift in Sources */,
+				5C9F686020164460007A0711 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,7 +352,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4D64ASXCQT;
-				INFOPLIST_FILE = Survey/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Survey/Supporting files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = marko.rankovic.Survey;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -291,7 +367,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4D64ASXCQT;
-				INFOPLIST_FILE = Survey/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Survey/Supporting files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = marko.rankovic.Survey;
 				PRODUCT_NAME = "$(TARGET_NAME)";
