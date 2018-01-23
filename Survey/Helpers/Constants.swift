@@ -16,3 +16,6 @@ let WRONG_LOGIN_PARAMS = "WRONG_LOGIN_PARAMS"
 
 //Segues
 let LIST_SEGUE = "ListSegue"
+
+//UserDefaults
+let USER = "User"

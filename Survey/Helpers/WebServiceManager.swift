@@ -31,10 +31,15 @@ struct WebServiceManager {
                 print("Status code is: \(httpStatus.statusCode)")
             }
             
-            let responseString = String(data: data, encoding: .utf8)
-            if (responseString?.contains("message"))! {
-                NotificationCenter.default.post(name: NSNotification.Name(rawValue: WRONG_LOGIN_PARAMS), object: nil)
-                return
+            do {
+                if let json = try JSONSerialization.jsonObject(with: data) as? [String: Any] {
+                    if let message = json["message"] as? String {
+                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: WRONG_LOGIN_PARAMS), object: nil, userInfo: ["message": message])
+                        return
+                    }
+                }
+            } catch let error {
+                print("Error serializing JSON: \(error.localizedDescription)")
             }
             
             do {

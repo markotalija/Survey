@@ -14,7 +14,7 @@ struct Record: Decodable {
     var records: [User]
 }
 
-class User: Codable {
+class User: NSObject, Codable, NSCoding {
 
     //MARK: - Properties
     var id: String?
@@ -31,6 +31,28 @@ class User: Codable {
         case companyName = "naziv_kompanije"
         case evaluationNumber = "broj_ocena"
         case status
+    }
+    
+    //MARK: - NSCoding Protocol
+    
+    required init?(coder aDecoder: NSCoder) {
+        
+        id = aDecoder.decodeObject(forKey: "id") as? String
+        name = aDecoder.decodeObject(forKey: "name") as? String
+        lastName = aDecoder.decodeObject(forKey: "lastName") as? String
+        companyName = aDecoder.decodeObject(forKey: "companyName") as? String
+        evaluationNumber = aDecoder.decodeObject(forKey: "evaluationNumber") as? String
+        status = aDecoder.decodeObject(forKey: "status") as? String
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        
+        aCoder.encode(id, forKey: "id")
+        aCoder.encode(name, forKey: "name")
+        aCoder.encode(lastName, forKey: "lastName")
+        aCoder.encode(companyName, forKey: "companyName")
+        aCoder.encode(evaluationNumber, forKey: "evaluationNumber")
+        aCoder.encode(status, forKey: "status")
     }
 }
 

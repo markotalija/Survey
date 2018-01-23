@@ -18,6 +18,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+        if let data = UserDefaults.standard.data(forKey: USER) {
+            let user = NSKeyedUnarchiver.unarchiveObject(with: data) as! User
+            DataManager.sharedInstance.currentUser = user
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: "ListViewController")
+            
+            window?.rootViewController = initialViewController
+            window?.makeKeyAndVisible()
+        }
+        
         return true
     }
 }

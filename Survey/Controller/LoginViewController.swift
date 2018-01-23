@@ -47,12 +47,20 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     func registerForNotifications() {
         
-        NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: WRONG_LOGIN_PARAMS), object: nil, queue: OperationQueue.main) { (note) in
-            DispatchQueue.main.async {
-                self.spinnerView.stopAnimating()
+        NotificationCenter.default.addObserver(self, selector: #selector(handleLoginError(notification:)), name: NSNotification.Name(rawValue: WRONG_LOGIN_PARAMS), object: nil)
+    }
+    
+    @objc func handleLoginError(notification: Notification) {
+        
+        DispatchQueue.main.async {
+            self.spinnerView.stopAnimating()
+            
+            if let errorMessage = notification.userInfo as? [String: String] {
+                if let loginError = errorMessage["message"] {
+                    let alert = Utilities.presentLoginErrorAlert(withTitle: loginError, message: "")
+                    self.present(alert, animated: true, completion: nil)
+                }
             }
-            let alert = Utilities.presentLoginErrorAlert(withTitle: "Pogrešan E-mail ili lozinka.", message: "")
-            self.present(alert, animated: true, completion: nil)
         }
     }
     
@@ -61,11 +69,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBAction func rememberMeButtonTapped() {
         
         checkboxButton.isSelected = !checkboxButton.isSelected
+        rememberMe = !rememberMe
     }
     
     @IBAction func checkboxTapped(sender: UIButton) {
         
         sender.isSelected = !sender.isSelected
+        rememberMe = !rememberMe
     }
     
     @IBAction func signUpButtonTapped() {
@@ -86,6 +96,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         WebServiceManager.createUserFromHTTPRequest(withURL: BASE_LOGIN_URL, parameters: "email=\(nameTextField.text!)&lozinka=\(passwordTextField.text!)") {
             self.spinnerView.stopAnimating()
+            
+            if self.rememberMe {
+                let data = NSKeyedArchiver.archivedData(withRootObject: DataManager.sharedInstance.currentUser)
+                UserDefaults.standard.set(data, forKey: USER)
+                UserDefaults.standard.synchronize()
+            }
+            
             self.performSegue(withIdentifier: LIST_SEGUE, sender: self)
         }
     }
