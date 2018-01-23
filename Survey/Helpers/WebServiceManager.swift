@@ -48,7 +48,7 @@ struct WebServiceManager {
                 DataManager.sharedInstance.currentUser = user
                 
             } catch let error {
-                print("Error parsing JSON: \(error.localizedDescription)")
+                print("Error parsing user data: \(error.localizedDescription)")
             }
             
             DispatchQueue.main.async {
@@ -56,5 +56,47 @@ struct WebServiceManager {
             }
             
             }.resume()
+    }
+    
+    static func getSurveyList(fromUserID id: String, completionHandler: @escaping () -> ()) {
+        
+        guard let surveyURL = URL(string: "\(BASE_SURVEY_LIST_URL)\(id)") else { return }
+        
+        URLSession.shared.dataTask(with: surveyURL) { (data, response, error) in
+            guard let data = data, error == nil else {
+                print("Error: \(error?.localizedDescription ?? "")")
+                return
+            }
+            
+            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
+                print("Status code is: \(httpStatus.statusCode)")
+            }
+            
+            do {
+                if let json = try JSONSerialization.jsonObject(with: data) as? [String: Any] {
+                    if let message = json["message"] as? String {
+                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: NO_SURVEYS), object: nil, userInfo: ["message": message])
+                        return
+                    }
+                }
+            } catch let error {
+                print("Error serializing JSON: \(error.localizedDescription)")
+            }
+            
+            do {
+                let record = try JSONDecoder().decode(SurveyRecord.self, from: data)
+                for survey in record.records! {
+                    if survey.status == "1" {
+                        DataManager.sharedInstance.surveysArray.append(survey)
+                    }
+                }
+            } catch let error {
+                print("Error parsing survey list: \(error.localizedDescription)")
+            }
+            
+            DispatchQueue.main.async {
+                completionHandler()
+            }
+        }.resume()
     }
 }

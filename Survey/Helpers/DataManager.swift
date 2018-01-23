@@ -12,6 +12,7 @@ class DataManager {
     
     //MARK: - Properties
     var currentUser: User!
+    var surveysArray = [Survey]()
     
     //MARK: - Singleton
     

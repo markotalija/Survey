@@ -21,6 +21,8 @@
 		5C9F686220164897007A0711 /* WebServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9F686120164897007A0711 /* WebServiceManager.swift */; };
 		5C9F686420164999007A0711 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9F686320164999007A0711 /* User.swift */; };
 		5CC28ACB201749E70015C68D /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC28ACA201749E70015C68D /* ListViewController.swift */; };
+		5CC28ACD20175E880015C68D /* Survey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC28ACC20175E880015C68D /* Survey.swift */; };
+		5CC28ACF2017672D0015C68D /* SurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC28ACE2017672D0015C68D /* SurveyViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		5C9F686120164897007A0711 /* WebServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebServiceManager.swift; sourceTree = "<group>"; };
 		5C9F686320164999007A0711 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		5CC28ACA201749E70015C68D /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		5CC28ACC20175E880015C68D /* Survey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Survey.swift; sourceTree = "<group>"; };
+		5CC28ACE2017672D0015C68D /* SurveyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				5C9F686320164999007A0711 /* User.swift */,
+				5CC28ACC20175E880015C68D /* Survey.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -105,6 +110,7 @@
 				5C90FEA52015F27E00DE6B6F /* LoginViewController.swift */,
 				5C90FEC02016141300DE6B6F /* ForgotPasswordViewController.swift */,
 				5CC28ACA201749E70015C68D /* ListViewController.swift */,
+				5CC28ACE2017672D0015C68D /* SurveyViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -218,9 +224,11 @@
 				5C90FEBF2016096700DE6B6F /* RoundedButton.swift in Sources */,
 				5C9F686420164999007A0711 /* User.swift in Sources */,
 				5C9F685E20161A4B007A0711 /* Utilities.swift in Sources */,
+				5CC28ACD20175E880015C68D /* Survey.swift in Sources */,
 				5C90FEA42015F27E00DE6B6F /* AppDelegate.swift in Sources */,
 				5C079EDF2016AAAD008B8F25 /* DataManager.swift in Sources */,
 				5CC28ACB201749E70015C68D /* ListViewController.swift in Sources */,
+				5CC28ACF2017672D0015C68D /* SurveyViewController.swift in Sources */,
 				5C9F686020164460007A0711 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
