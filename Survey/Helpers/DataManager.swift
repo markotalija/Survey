@@ -7,12 +7,16 @@
 //
 
 import Foundation
+import CoreLocation
 
 class DataManager {
     
     //MARK: - Properties
     var currentUser: User!
     var surveysArray = [Survey]()
+    var chosenGrade: String!
+    var deviceLocation: CLLocation!
+    var userLocality: String!
     
     //MARK: - Singleton
     

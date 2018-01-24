@@ -20,10 +20,35 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        WebServiceManager.sendDeviceLocationToDatabase()
+        
+        registerForNotifications()
+        print(DataManager.sharedInstance.deviceLocation.coordinate.latitude)
+        print(DataManager.sharedInstance.deviceLocation.coordinate.longitude)
+        
         usernameLabel.text = "\(DataManager.sharedInstance.currentUser.name!) \(DataManager.sharedInstance.currentUser.lastName!)"
         
         WebServiceManager.getSurveyList(fromUserID: DataManager.sharedInstance.currentUser.id!) {
             self.tableView.reloadData()
+        }
+    }
+    
+    //MARK: - Public API
+    
+    func registerForNotifications() {
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(handleNoSurveysError(notification:)), name: NSNotification.Name(rawValue: NO_SURVEYS), object: nil)
+    }
+    
+    @objc func handleNoSurveysError(notification: Notification) {
+        
+        DispatchQueue.main.async {
+            if let errorMessage = notification.userInfo as? [String: String] {
+                if let noSurveysError = errorMessage["message"] {
+                    let alert = Utilities.presentLoginErrorAlert(withTitle: noSurveysError, message: "")
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }
         }
     }
     

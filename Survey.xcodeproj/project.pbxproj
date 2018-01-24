@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		20B83FA3527597CE413441AC /* Pods_Survey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD5C6967FBA5DFC60B903781 /* Pods_Survey.framework */; };
 		5C079EDF2016AAAD008B8F25 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C079EDE2016AAAD008B8F25 /* DataManager.swift */; };
 		5C90FEA42015F27E00DE6B6F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C90FEA32015F27E00DE6B6F /* AppDelegate.swift */; };
 		5C90FEA62015F27E00DE6B6F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C90FEA52015F27E00DE6B6F /* LoginViewController.swift */; };
@@ -20,12 +21,14 @@
 		5C9F686020164460007A0711 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9F685F20164460007A0711 /* Constants.swift */; };
 		5C9F686220164897007A0711 /* WebServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9F686120164897007A0711 /* WebServiceManager.swift */; };
 		5C9F686420164999007A0711 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9F686320164999007A0711 /* User.swift */; };
+		5CAB718B2018CA7100992054 /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAB718A2018CA7100992054 /* CommentsViewController.swift */; };
 		5CC28ACB201749E70015C68D /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC28ACA201749E70015C68D /* ListViewController.swift */; };
 		5CC28ACD20175E880015C68D /* Survey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC28ACC20175E880015C68D /* Survey.swift */; };
 		5CC28ACF2017672D0015C68D /* SurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC28ACE2017672D0015C68D /* SurveyViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B9EFADE127BE28FA067423B /* Pods-Survey.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Survey.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Survey/Pods-Survey.debug.xcconfig"; sourceTree = "<group>"; };
 		5C079EDE2016AAAD008B8F25 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		5C90FEA02015F27E00DE6B6F /* Survey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Survey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C90FEA32015F27E00DE6B6F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -41,9 +44,12 @@
 		5C9F685F20164460007A0711 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		5C9F686120164897007A0711 /* WebServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebServiceManager.swift; sourceTree = "<group>"; };
 		5C9F686320164999007A0711 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		5CAB718A2018CA7100992054 /* CommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
 		5CC28ACA201749E70015C68D /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		5CC28ACC20175E880015C68D /* Survey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Survey.swift; sourceTree = "<group>"; };
 		5CC28ACE2017672D0015C68D /* SurveyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyViewController.swift; sourceTree = "<group>"; };
+		DD5C6967FBA5DFC60B903781 /* Pods_Survey.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Survey.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE45AA5FD4A559DAFE5DCD94 /* Pods-Survey.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Survey.release.xcconfig"; path = "Pods/Target Support Files/Pods-Survey/Pods-Survey.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,17 +57,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20B83FA3527597CE413441AC /* Pods_Survey.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0DAA64BFE23E5F0021951E9F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DD5C6967FBA5DFC60B903781 /* Pods_Survey.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		5C90FE972015F27E00DE6B6F = {
 			isa = PBXGroup;
 			children = (
 				5C90FEA22015F27E00DE6B6F /* Survey */,
 				5C90FEA12015F27E00DE6B6F /* Products */,
+				EC55A0C72F9276BA3FC77FD6 /* Pods */,
+				0DAA64BFE23E5F0021951E9F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -111,6 +128,7 @@
 				5C90FEC02016141300DE6B6F /* ForgotPasswordViewController.swift */,
 				5CC28ACA201749E70015C68D /* ListViewController.swift */,
 				5CC28ACE2017672D0015C68D /* SurveyViewController.swift */,
+				5CAB718A2018CA7100992054 /* CommentsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -145,6 +163,15 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		EC55A0C72F9276BA3FC77FD6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1B9EFADE127BE28FA067423B /* Pods-Survey.debug.xcconfig */,
+				FE45AA5FD4A559DAFE5DCD94 /* Pods-Survey.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -152,9 +179,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5C90FEB22015F27E00DE6B6F /* Build configuration list for PBXNativeTarget "Survey" */;
 			buildPhases = (
+				1A829848D562FE510311145E /* [CP] Check Pods Manifest.lock */,
 				5C90FE9C2015F27E00DE6B6F /* Sources */,
 				5C90FE9D2015F27E00DE6B6F /* Frameworks */,
 				5C90FE9E2015F27E00DE6B6F /* Resources */,
+				42827E02A715D411D412AE6E /* [CP] Embed Pods Frameworks */,
+				9BF6FAAF76873027BD1B68E6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -213,12 +243,67 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1A829848D562FE510311145E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Survey-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		42827E02A715D411D412AE6E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Survey/Pods-Survey-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Survey/Pods-Survey-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9BF6FAAF76873027BD1B68E6 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Survey/Pods-Survey-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		5C90FE9C2015F27E00DE6B6F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				5C90FEC12016141300DE6B6F /* ForgotPasswordViewController.swift in Sources */,
+				5CAB718B2018CA7100992054 /* CommentsViewController.swift in Sources */,
 				5C9F686220164897007A0711 /* WebServiceManager.swift in Sources */,
 				5C90FEA62015F27E00DE6B6F /* LoginViewController.swift in Sources */,
 				5C90FEBF2016096700DE6B6F /* RoundedButton.swift in Sources */,
@@ -364,6 +449,7 @@
 		};
 		5C90FEB32015F27E00DE6B6F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1B9EFADE127BE28FA067423B /* Pods-Survey.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -379,6 +465,7 @@
 		};
 		5C90FEB42015F27E00DE6B6F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FE45AA5FD4A559DAFE5DCD94 /* Pods-Survey.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

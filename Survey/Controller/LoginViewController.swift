@@ -23,8 +23,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //Ako je login uspesan, sacuvati korisnika u NSUD, i u AppDelegatu proveriti da li ga imam.
-        //Ako imam korisnika, uzeti njegove podatke i preci odmah na listu anketa
         //Nastaviti dalje
         
         //Ispisati komentare

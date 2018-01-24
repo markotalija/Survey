@@ -99,4 +99,36 @@ struct WebServiceManager {
             }
         }.resume()
     }
+    
+    static func sendDeviceLocationToDatabase() {
+        
+        guard let locationURL = URL(string: BASE_LOCATION_URL) else { return }
+        
+        var request = URLRequest(url: locationURL)
+        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        request.httpMethod = "POST"
+        
+        let parameters = "id=7&lat=\(DataManager.sharedInstance.deviceLocation.coordinate.latitude)&lon=\(DataManager.sharedInstance.deviceLocation.coordinate.longitude)"
+        request.httpBody = parameters.data(using: .utf8)
+        
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            guard let data = data, error == nil else {
+                print("Error: \(error?.localizedDescription ?? "")")
+                return
+            }
+            
+            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
+                print("Status code is: \(httpStatus.statusCode)")
+                return
+            }
+            
+            do {
+                if let json = try JSONSerialization.jsonObject(with: data) as? [String: Any] {
+                    print(json)
+                }
+            } catch let error {
+                print("Error serializing JSON: \(error.localizedDescription)")
+            }
+        }.resume()
+    }
 }

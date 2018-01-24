@@ -14,16 +14,6 @@ struct SurveyRecord: Codable {
     var records: [Survey]?
 }
 
-struct Icon: Codable {
-    
-    //MARK: - Properties
-    var urlsArray: [String]?
-    
-    enum CodingKeys: String, CodingKey {
-        case urlsArray = "ikonice"
-    }
-}
-
 class Survey: NSObject, Codable {
 
     //MARK: - Properties
@@ -35,7 +25,7 @@ class Survey: NSObject, Codable {
     var background: String?
     var userID: String?
     var evaluations: String?
-    var iconURLs: [Icon]?
+    var iconURLs: [String]?
     
     enum CodingKeys: String, CodingKey {
         case id
