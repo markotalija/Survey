@@ -46,6 +46,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     func registerForNotifications() {
         
         NotificationCenter.default.addObserver(self, selector: #selector(handleLoginError(notification:)), name: NSNotification.Name(rawValue: WRONG_LOGIN_PARAMS), object: nil)
+        NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: LOCATION_DETERMINED), object: nil, queue: OperationQueue.main) { (note) in
+            WebServiceManager.sendDeviceLocationToDatabase()
+        }
     }
     
     @objc func handleLoginError(notification: Notification) {

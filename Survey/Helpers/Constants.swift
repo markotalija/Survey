@@ -17,6 +17,7 @@ let GOOGLE_GEOCODE_URL = "https://maps.googleapis.com/maps/api/geocode/json?latl
 //Notifications
 let WRONG_LOGIN_PARAMS = "WRONG_LOGIN_PARAMS"
 let NO_SURVEYS = "NO_SURVEYS"
+let LOCATION_DETERMINED = "LOCATION_DETERMINED"
 
 //Segues
 let LIST_SEGUE = "ListSegue"
@@ -28,3 +29,6 @@ let USER = "User"
 
 //UITableViewCells
 let CELL_IDENTIFIER = "Cell"
+
+//UserDefaults
+let WAITING_DATE = "WAITING_DATE"

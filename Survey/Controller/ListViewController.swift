@@ -20,11 +20,9 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        WebServiceManager.sendDeviceLocationToDatabase()
-        
         registerForNotifications()
-        print(DataManager.sharedInstance.deviceLocation.coordinate.latitude)
-        print(DataManager.sharedInstance.deviceLocation.coordinate.longitude)
+        //print(DataManager.sharedInstance.deviceLocation.coordinate.latitude)
+        //print(DataManager.sharedInstance.deviceLocation.coordinate.longitude)
         
         usernameLabel.text = "\(DataManager.sharedInstance.currentUser.name!) \(DataManager.sharedInstance.currentUser.lastName!)"
         
@@ -38,6 +36,9 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func registerForNotifications() {
         
         NotificationCenter.default.addObserver(self, selector: #selector(handleNoSurveysError(notification:)), name: NSNotification.Name(rawValue: NO_SURVEYS), object: nil)
+        NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: LOCATION_DETERMINED), object: nil, queue: OperationQueue.main) { (note) in
+            WebServiceManager.sendDeviceLocationToDatabase()
+        }
     }
     
     @objc func handleNoSurveysError(notification: Notification) {

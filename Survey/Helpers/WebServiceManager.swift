@@ -119,15 +119,19 @@ struct WebServiceManager {
             
             if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
                 print("Status code is: \(httpStatus.statusCode)")
-                return
+                //return
             }
             
             do {
                 if let json = try JSONSerialization.jsonObject(with: data) as? [String: Any] {
                     print(json)
                 }
+                
+                //Utilities.setTimer()
+                
             } catch let error {
                 print("Error serializing JSON: \(error.localizedDescription)")
+                Utilities.setTimer()
             }
         }.resume()
     }

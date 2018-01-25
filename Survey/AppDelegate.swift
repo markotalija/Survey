@@ -20,7 +20,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        configureLocationManager()
+        //********************************
+        //REMEMBER TO PUT Utilites.setTimer() TO DO BLOCK IN WSM SEND LOCATION METHOD!!! CATCH BLOCK IS ONLY FOR TEST PURPOSES!!!!!
+        //********************************
+        
+        if let _ = UserDefaults.standard.value(forKey: WAITING_DATE) as? Date {
+            if Utilities.checkIfTimerExpired() {
+                configureLocationManager()
+            }
+        } else {
+            configureLocationManager()
+        }
         
         if let data = UserDefaults.standard.data(forKey: USER) {
             let user = NSKeyedUnarchiver.unarchiveObject(with: data) as! User
@@ -44,7 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
-        locationManager.startUpdatingLocation()
+        locationManager.requestLocation()
     }
     
     func getLocationName(completionHandler: @escaping (CLPlacemark?) -> Void) {
@@ -72,6 +82,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         
         print("Location manager error: \(error.localizedDescription)")
+        locationManager.requestLocation()
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -79,6 +90,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         if locations.count > 0 {
             if let location = locations.last {
                 DataManager.sharedInstance.deviceLocation = location
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: LOCATION_DETERMINED), object: nil)
                 getLocationName { (placemark) in
                     if let place = placemark {
                         if let locality = place.locality {

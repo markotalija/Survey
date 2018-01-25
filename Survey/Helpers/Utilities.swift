@@ -29,4 +29,26 @@ class Utilities {
         
         return alert
     }
+    
+    static func setTimer() {
+        
+        let currentDate = Date()
+        let calendar = Calendar.current
+        if let newDate = calendar.date(byAdding: .minute, value: 30, to: currentDate) {
+            UserDefaults.standard.set(newDate, forKey: WAITING_DATE)
+            UserDefaults.standard.synchronize()
+        }
+    }
+    
+    static func checkIfTimerExpired() -> Bool {
+        
+        if let waitingDate = UserDefaults.standard.value(forKey: WAITING_DATE) as? Date {
+            let currentDate = Date()
+            if currentDate.compare(waitingDate) == .orderedDescending {
+                return true
+            }
+        }
+        
+        return false
+    }
 }

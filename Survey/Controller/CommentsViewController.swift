@@ -14,6 +14,7 @@ class CommentsViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var sendButton: RoundedButton!
     var survey: Survey!
+    var isTextWritten = false
     
     //MARK: - View lifecycle
     
@@ -32,6 +33,16 @@ class CommentsViewController: UIViewController, UITextViewDelegate {
             sendButton.isHidden = true
         } else {
             textView.becomeFirstResponder()
+            setTimer()
+        }
+    }
+    
+    func setTimer() {
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+            if !self.isTextWritten {
+                self.dismiss(animated: true, completion: nil)
+            }
         }
     }
     
@@ -45,5 +56,10 @@ class CommentsViewController: UIViewController, UITextViewDelegate {
         }
         
         return true
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        
+        isTextWritten = true
     }
 }

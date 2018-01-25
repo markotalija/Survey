@@ -394,6 +394,9 @@
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="23"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="34"/>
+                                </variation>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="5R5-lK-9T0">
                                 <rect key="frame" x="8" y="289.5" width="359" height="88"/>
@@ -450,13 +453,13 @@
                                         <rect key="frame" x="147" y="0.0" width="65" height="88"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VRLO DOBRO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="NKn-gm-91o">
-                                                <rect key="frame" x="0.0" y="0.0" width="65" height="17"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="65" height="17.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8oq-O6-xqp">
-                                                <rect key="frame" x="0.0" y="22" width="65" height="66"/>
+                                                <rect key="frame" x="0.0" y="22.5" width="65" height="65.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="8oq-O6-xqp" secondAttribute="height" multiplier="1:1" id="eP8-vD-t36"/>
                                                 </constraints>
@@ -532,7 +535,9 @@
                             <constraint firstItem="5R5-lK-9T0" firstAttribute="leading" secondItem="gs5-OK-Geg" secondAttribute="leading" constant="8" id="KyA-3Z-Qtu"/>
                             <constraint firstItem="lXP-55-1gt" firstAttribute="leading" secondItem="ssA-ME-6eE" secondAttribute="leading" constant="16" id="cZF-nS-NUa"/>
                             <constraint firstItem="bu1-3u-EQh" firstAttribute="bottom" secondItem="ssA-ME-6eE" secondAttribute="bottom" id="gFj-FT-zog"/>
-                            <constraint firstItem="lXP-55-1gt" firstAttribute="top" secondItem="ssA-ME-6eE" secondAttribute="top" constant="30" id="ktp-GX-Jtb"/>
+                            <constraint firstItem="lXP-55-1gt" firstAttribute="top" secondItem="ssA-ME-6eE" secondAttribute="top" constant="30" id="ktp-GX-Jtb">
+                                <variation key="heightClass=regular-widthClass=regular" constant="120"/>
+                            </constraint>
                             <constraint firstItem="bu1-3u-EQh" firstAttribute="leading" secondItem="ssA-ME-6eE" secondAttribute="leading" id="qnz-5S-EWE"/>
                             <constraint firstItem="ssA-ME-6eE" firstAttribute="trailing" secondItem="lXP-55-1gt" secondAttribute="trailing" constant="16" id="rCj-eD-XhY"/>
                             <constraint firstItem="5R5-lK-9T0" firstAttribute="centerX" secondItem="gs5-OK-Geg" secondAttribute="centerX" id="sEO-kF-tsc"/>
@@ -576,6 +581,9 @@
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="26"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="35"/>
+                                </variation>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8CU-NW-oAy">
                                 <rect key="frame" x="16" y="131" width="343" height="360"/>
@@ -585,15 +593,20 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="light" returnKeyType="done" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="24"/>
+                                </variation>
                                 <connections>
                                     <outlet property="delegate" destination="61e-ML-P86" id="aNM-Ch-78B"/>
                                 </connections>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TlW-iU-4dP" customClass="RoundedButton" customModule="Survey" customModuleProvider="target">
-                                <rect key="frame" x="97" y="609" width="180" height="38"/>
+                                <rect key="frame" x="97.5" y="609" width="180" height="38"/>
                                 <color key="backgroundColor" red="0.94901960780000005" green="0.56470588239999997" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="38" id="M0f-Lu-TSj"/>
+                                    <constraint firstAttribute="height" constant="38" id="M0f-Lu-TSj">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="60"/>
+                                    </constraint>
                                     <constraint firstAttribute="width" constant="180" id="tSl-dM-m7p"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
@@ -611,7 +624,9 @@
                             <constraint firstItem="RQC-k3-5e5" firstAttribute="leading" secondItem="ep4-fO-1W5" secondAttribute="leading" constant="16" id="EoL-yA-cZ8"/>
                             <constraint firstItem="TlW-iU-4dP" firstAttribute="centerX" secondItem="Psw-OZ-DwV" secondAttribute="centerX" id="OOU-Bp-wv8"/>
                             <constraint firstItem="ep4-fO-1W5" firstAttribute="bottom" secondItem="TlW-iU-4dP" secondAttribute="bottom" constant="20" id="SgN-Tk-Qcj"/>
-                            <constraint firstItem="RQC-k3-5e5" firstAttribute="top" secondItem="ep4-fO-1W5" secondAttribute="top" constant="30" id="ZHD-7g-u5H"/>
+                            <constraint firstItem="RQC-k3-5e5" firstAttribute="top" secondItem="ep4-fO-1W5" secondAttribute="top" constant="30" id="ZHD-7g-u5H">
+                                <variation key="heightClass=regular-widthClass=regular" constant="120"/>
+                            </constraint>
                             <constraint firstItem="8CU-NW-oAy" firstAttribute="leading" secondItem="ep4-fO-1W5" secondAttribute="leading" constant="16" id="gMs-xs-5lH"/>
                             <constraint firstItem="8CU-NW-oAy" firstAttribute="top" secondItem="RQC-k3-5e5" secondAttribute="bottom" constant="8" id="tfM-3p-Mt6"/>
                             <constraint firstItem="ep4-fO-1W5" firstAttribute="trailing" secondItem="8CU-NW-oAy" secondAttribute="trailing" constant="16" id="zCW-Hx-wBf"/>
