@@ -26,6 +26,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         usernameLabel.text = "\(DataManager.sharedInstance.currentUser.name!) \(DataManager.sharedInstance.currentUser.lastName!)"
         
+        //Dobijanje liste anketa
         WebServiceManager.getSurveyList(fromUserID: DataManager.sharedInstance.currentUser.id!) {
             self.tableView.reloadData()
         }
@@ -57,6 +58,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
+        //Prenošenje ankete narednom View controller-u
         if let destination = segue.destination as? SurveyViewController {
             destination.currentSurvey = selectedSurvey
         }

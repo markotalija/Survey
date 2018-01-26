@@ -23,11 +23,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //Nastaviti dalje
-        
-        //Ispisati komentare
-        //Proveriti layout na svim uredjajima
-        
         registerForNotifications()
         configureForgotPasswordButton()
     }
@@ -36,6 +31,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     func configureForgotPasswordButton() {
         
+        //Podvlačenje teksta
         let attributes = [NSAttributedStringKey.underlineStyle: 1,
                           NSAttributedStringKey.foregroundColor: UIColor.black] as [NSAttributedStringKey : Any]
         let attributedString = NSAttributedString(string: "Zaboravili ste šifru?", attributes: attributes)
@@ -95,9 +91,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         spinnerView.startAnimating()
         
+        //Dobijanje User objekta od HTTP odgovora
         WebServiceManager.createUserFromHTTPRequest(withURL: BASE_LOGIN_URL, parameters: "email=\(nameTextField.text!)&lozinka=\(passwordTextField.text!)") {
             self.spinnerView.stopAnimating()
             
+            //Ako je "zapamti me" štiklirano, čuvati korisnika u UserDefaults
             if self.rememberMe {
                 let data = NSKeyedArchiver.archivedData(withRootObject: DataManager.sharedInstance.currentUser)
                 UserDefaults.standard.set(data, forKey: USER)
@@ -112,6 +110,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
+        //Prelazak na passwordTextField na return dugme
         if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
             nextField.becomeFirstResponder()
         } else {

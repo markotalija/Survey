@@ -40,13 +40,17 @@ class SurveyViewController: UIViewController {
         
         //Odraditi return slucajeve u guardovima
         
+        //Postavljanje pozadine
         if let background = currentSurvey.background, background != "" {
             if let url = URL(string: background) {
                 backgroundImageView.sd_setImage(with: url, completed: nil)
             }
         }
         
-        guard let iconsArray = currentSurvey.iconURLs, iconsArray.count != 0 else { return }
+        guard let iconsArray = currentSurvey.iconURLs, iconsArray.count != 0 else {
+            print("No icons available")
+            return
+        }
         
         var buttonsArray = [UIButton]()
         buttonsArray.append(button1)
@@ -62,7 +66,7 @@ class SurveyViewController: UIViewController {
             button.sd_setBackgroundImage(with: url, for: .normal, completed: nil)
         }
         
-        
+        //Postavljanje pitanja
         if let question = currentSurvey.question {
             questionLabel.text = question
         } else {

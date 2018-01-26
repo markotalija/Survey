@@ -39,6 +39,7 @@ class CommentsViewController: UIViewController, UITextViewDelegate {
     
     func setTimer() {
         
+        //Sklanjanje view controller-a nakon 10 sekundi
         DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
             if !self.isTextWritten {
                 self.dismiss(animated: true, completion: nil)
