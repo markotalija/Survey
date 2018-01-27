@@ -453,13 +453,13 @@
                                         <rect key="frame" x="147" y="0.0" width="65" height="88"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VRLO DOBRO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="NKn-gm-91o">
-                                                <rect key="frame" x="0.0" y="0.0" width="65" height="17.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="65" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8oq-O6-xqp">
-                                                <rect key="frame" x="0.0" y="22.5" width="65" height="65.5"/>
+                                                <rect key="frame" x="0.0" y="22" width="65" height="66"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="8oq-O6-xqp" secondAttribute="height" multiplier="1:1" id="eP8-vD-t36"/>
                                                 </constraints>
@@ -616,6 +616,9 @@
                                 <variation key="heightClass=regular-widthClass=regular">
                                     <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 </variation>
+                                <connections>
+                                    <action selector="sendButtonTapped" destination="61e-ML-P86" eventType="touchUpInside" id="P1g-Aq-Tti"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

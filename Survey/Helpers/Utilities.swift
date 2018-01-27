@@ -51,4 +51,13 @@ class Utilities {
         
         return false
     }
+    
+    static func getDeviceID() -> String {
+        
+        if let vendor = UIDevice.current.identifierForVendor {
+            return vendor.uuidString
+        }
+        
+        return ""
+    }
 }

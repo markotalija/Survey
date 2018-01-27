@@ -118,20 +118,55 @@ struct WebServiceManager {
             }
             
             if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
-                print("Status code is: \(httpStatus.statusCode)")
-                //return
+                let errorDescription = "HTTP Error \(httpStatus.statusCode), \(HTTPURLResponse.localizedString(forStatusCode: httpStatus.statusCode))"
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: HTTP_ERROR), object: nil, userInfo: ["error": errorDescription])
+                return
             }
             
             do {
                 if let json = try JSONSerialization.jsonObject(with: data) as? [String: Any] {
-                    print(json)
+                    if let message = json["message"] as? String {
+                        if message == "Lokacija je dodata" {
+                            Utilities.setTimer()
+                        }
+                    }
                 }
-                
-                //Utilities.setTimer()
                 
             } catch let error {
                 print("Error serializing JSON: \(error.localizedDescription)")
-                Utilities.setTimer()
+            }
+        }.resume()
+    }
+    
+    static func sendCommentToServer(withParameters: String) {
+        
+        guard let commentsURL = URL(string: BASE_COMMENTS_URL) else { return }
+        
+        var request = URLRequest(url: commentsURL)
+        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        request.httpMethod = "POST"
+        request.httpBody = withParameters.data(using: .utf8)
+        
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            guard let data = data, error == nil else {
+                print("Error: \(error?.localizedDescription ?? "")")
+                return
+            }
+            
+            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
+                let errorDescription = "HTTP Error \(httpStatus.statusCode), \(HTTPURLResponse.localizedString(forStatusCode: httpStatus.statusCode))"
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: COMMENTS_ERROR), object: nil, userInfo: ["error": errorDescription])
+                return
+            }
+            
+            do {
+                if let json = try JSONSerialization.jsonObject(with: data) as? [String: Any] {
+                    if let message = json["message"] as? String {
+                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: SENT_COMMENT_RESPONSE), object: nil, userInfo: ["message": message])
+                    }
+                }
+            } catch let error {
+                print("Error serializing JSON: \(error.localizedDescription)")
             }
         }.resume()
     }

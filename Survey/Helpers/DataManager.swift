@@ -16,7 +16,8 @@ class DataManager {
     var surveysArray = [Survey]()
     var chosenGrade: String!
     var deviceLocation: CLLocation!
-    var userLocality: String!
+    var userLocality: String?
+    var deviceID: String!
     
     //MARK: - Singleton
     

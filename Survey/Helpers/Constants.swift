@@ -12,12 +12,15 @@ import Foundation
 let BASE_LOGIN_URL = "http://admin.4like.rs/admin/api/login.php"
 let BASE_SURVEY_LIST_URL = "http://admin.4like.rs/admin/api/read.php?id="
 let BASE_LOCATION_URL = "http://admin.4like.rs/admin/api/lokacija.php"
-let GOOGLE_GEOCODE_URL = "https://maps.googleapis.com/maps/api/geocode/json?latlng="
+let BASE_COMMENTS_URL = "http://admin.4like.rs/admin/api/create.php"
 
 //Notifications
 let WRONG_LOGIN_PARAMS = "WRONG_LOGIN_PARAMS"
 let NO_SURVEYS = "NO_SURVEYS"
 let LOCATION_DETERMINED = "LOCATION_DETERMINED"
+let HTTP_ERROR = "HTTP_ERROR"
+let COMMENTS_ERROR = "COMMENTS_ERROR"
+let SENT_COMMENT_RESPONSE = "SENT_COMMENT_RESPONSE"
 
 //Segues
 let LIST_SEGUE = "ListSegue"

@@ -21,10 +21,17 @@ class CommentsViewController: UIViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        registerForNotifications()
         configureCommentsSection()
     }
     
     //MARK: - Public API
+    
+    func registerForNotifications() {
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(handleCommentsError(notification:)), name: NSNotification.Name(rawValue: COMMENTS_ERROR), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleSentCommentMessage(notification:)), name: NSNotification.Name(rawValue: SENT_COMMENT_RESPONSE), object: nil)
+    }
     
     func configureCommentsSection() {
         
@@ -45,6 +52,70 @@ class CommentsViewController: UIViewController, UITextViewDelegate {
                 self.dismiss(animated: true, completion: nil)
             }
         }
+    }
+    
+    @objc func handleCommentsError(notification: Notification) {
+        
+        DispatchQueue.main.async {
+            if let error = notification.userInfo as? [String: String] {
+                if let httpError = error["error"] {
+                    let alert = Utilities.presentLoginErrorAlert(withTitle: "Komentar ne može da se pošalje", message: httpError)
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }
+        }
+    }
+    
+    @objc func handleSentCommentMessage(notification: Notification) {
+        
+        DispatchQueue.main.async {
+            if let messageDictionary = notification.userInfo as? [String: String] {
+                if let message = messageDictionary["message"] {
+                    let alert = Utilities.presentAlertMessage(withTitle: message)
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }
+        }
+    }
+    
+    //MARK: - Actions
+    
+    @IBAction func sendButtonTapped() {
+        
+        guard textView.text != nil else { return }
+        
+        //Tip izabrane ocene
+        guard let gradeType = DataManager.sharedInstance.chosenGrade else { return }
+        
+        //Datum i vreme
+        let currentDate = Date()
+        let formatter = DateFormatter()
+        let calendar = Calendar.current
+        formatter.dateFormat = "yyyy-MM-dd"
+        
+        let date = formatter.string(from: currentDate)
+        
+        let hour = calendar.component(.hour, from: currentDate)
+        let minute = calendar.component(.minute, from: currentDate)
+        
+        let time = "\(hour):\(minute)"
+        
+        //ID uredjaja
+        let deviceID = DataManager.sharedInstance.deviceID!
+        
+        //ID ankete
+        guard let surveyID = survey.id else { return }
+        
+        //Lokacija
+        let location = DataManager.sharedInstance.userLocality!
+        
+        //Komentar
+        let comment = textView.text!
+        
+        let parameters = "tip=\(gradeType)&vreme=\(time)&datum=\(date)&id_uredjaja=\(deviceID)&id_ankete=\(surveyID)&lokacija=\(location)&komentar=\(comment)"
+        
+        //Slanje komentara i ostalih parametara na servis
+        WebServiceManager.sendCommentToServer(withParameters: parameters)
     }
     
     //MARK: - UITextViewDelegate

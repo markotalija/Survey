@@ -37,6 +37,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func registerForNotifications() {
         
         NotificationCenter.default.addObserver(self, selector: #selector(handleNoSurveysError(notification:)), name: NSNotification.Name(rawValue: NO_SURVEYS), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleHTTPError(notification:)), name: NSNotification.Name(rawValue: HTTP_ERROR), object: nil)
         NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: LOCATION_DETERMINED), object: nil, queue: OperationQueue.main) { (note) in
             WebServiceManager.sendDeviceLocationToDatabase()
         }
@@ -48,6 +49,18 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
             if let errorMessage = notification.userInfo as? [String: String] {
                 if let noSurveysError = errorMessage["message"] {
                     let alert = Utilities.presentLoginErrorAlert(withTitle: noSurveysError, message: "")
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }
+        }
+    }
+    
+    @objc func handleHTTPError(notification: Notification) {
+        
+        DispatchQueue.main.async {
+            if let error = notification.userInfo as? [String: String] {
+                if let httpError = error["error"] {
+                    let alert = Utilities.presentLoginErrorAlert(withTitle: "Lokacija ne može da se prosledi", message: httpError)
                     self.present(alert, animated: true, completion: nil)
                 }
             }

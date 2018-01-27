@@ -42,6 +42,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     func registerForNotifications() {
         
         NotificationCenter.default.addObserver(self, selector: #selector(handleLoginError(notification:)), name: NSNotification.Name(rawValue: WRONG_LOGIN_PARAMS), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleHTTPError(notification:)), name: NSNotification.Name(rawValue: HTTP_ERROR), object: nil)
         NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: LOCATION_DETERMINED), object: nil, queue: OperationQueue.main) { (note) in
             WebServiceManager.sendDeviceLocationToDatabase()
         }
@@ -55,6 +56,18 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             if let errorMessage = notification.userInfo as? [String: String] {
                 if let loginError = errorMessage["message"] {
                     let alert = Utilities.presentLoginErrorAlert(withTitle: loginError, message: "")
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }
+        }
+    }
+    
+    @objc func handleHTTPError(notification: Notification) {
+        
+        DispatchQueue.main.async {
+            if let error = notification.userInfo as? [String: String] {
+                if let httpError = error["error"] {
+                    let alert = Utilities.presentLoginErrorAlert(withTitle: "Lokacija ne može da se prosledi", message: httpError)
                     self.present(alert, animated: true, completion: nil)
                 }
             }

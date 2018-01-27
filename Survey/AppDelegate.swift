@@ -20,10 +20,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        //********************************
-        //REMEMBER TO PUT Utilites.setTimer() TO DO BLOCK IN WSM SEND LOCATION METHOD!!! CATCH BLOCK IS ONLY FOR TEST PURPOSES!!!!!
-        //********************************
+        //Dobijanje ID-a uređaja
+        let deviceID = Utilities.getDeviceID()
+        DataManager.sharedInstance.deviceID = deviceID
         
+        //30-minutni tajmer za lokaciju
         if let _ = UserDefaults.standard.value(forKey: WAITING_DATE) as? Date {
             if Utilities.checkIfTimerExpired() {
                 configureLocationManager()
@@ -32,6 +33,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
             configureLocationManager()
         }
         
+        //Dobijanje područja uređaja
+        getLocationName { (placemark) in
+            if let place = placemark {
+                if let locality = place.locality {
+                    DataManager.sharedInstance.userLocality = locality
+                }
+            }
+        }
+        
+        //Ako je korisnik sačuvan, preći na ekran sa listom anketa
         if let data = UserDefaults.standard.data(forKey: USER) {
             let user = NSKeyedUnarchiver.unarchiveObject(with: data) as! User
             DataManager.sharedInstance.currentUser = user
@@ -73,6 +84,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
             })
         } else {
             print("No location available")
+            DataManager.sharedInstance.userLocality = "Konjarnik"
             completionHandler(nil)
         }
     }
@@ -91,13 +103,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
             if let location = locations.last {
                 DataManager.sharedInstance.deviceLocation = location
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: LOCATION_DETERMINED), object: nil)
-                getLocationName { (placemark) in
-                    if let place = placemark {
-                        if let locality = place.locality {
-                            DataManager.sharedInstance.userLocality = locality
-                        }
-                    }
-                }
             }
         }
     }
