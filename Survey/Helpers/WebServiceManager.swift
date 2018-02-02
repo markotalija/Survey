@@ -127,6 +127,7 @@ struct WebServiceManager {
                 if let json = try JSONSerialization.jsonObject(with: data) as? [String: Any] {
                     if let message = json["message"] as? String {
                         if message == "Lokacija je dodata" {
+                            print("Lokacija je dodata")
                             Utilities.setTimer()
                         }
                     }
