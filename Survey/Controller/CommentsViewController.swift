@@ -73,6 +73,10 @@ class CommentsViewController: UIViewController, UITextViewDelegate {
                 if let message = messageDictionary["message"] {
                     let alert = Utilities.presentAlertMessage(withTitle: message)
                     self.present(alert, animated: true, completion: nil)
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+                        alert.dismiss(animated: true, completion: nil)
+                    })
                 }
             }
         }
